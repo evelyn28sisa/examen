@@ -1,7 +1,11 @@
-let carrito = [];
+let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
 const listaCarrito = document.getElementById('lista-carrito');
 const totalSpan = document.getElementById('total');
 const carritoVacio = document.getElementById('carrito-vacio');
+
+function guardarCarrito() {
+  localStorage.setItem('carrito', JSON.stringify(carrito));
+}
 
 function actualizarCarrito() {
   listaCarrito.innerHTML = '';
@@ -40,6 +44,7 @@ document.querySelectorAll('.agregar').forEach(boton => {
     } else {
       carrito.push({ nombre, precio, cantidad: 1 });
     }
+    guardarCarrito();
     actualizarCarrito();
     alert(`${nombre} agregado al carrito`);
   });
@@ -49,3 +54,68 @@ document.getElementById('vaciar-carrito').addEventListener('click', () => {
   carrito = [];
   actualizarCarrito();
 });
+
+// Slider Hero
+const slides = document.querySelector('.slides');
+const prevBtn = document.querySelector('.slider-btn.prev');
+const nextBtn = document.querySelector('.slider-btn.next');
+const dotsContainer = document.querySelector('.slider-dots');
+let currentSlide = 0;
+let slideInterval;
+
+function createDots() {
+  const slideCount = document.querySelectorAll('.slide').length;
+  dotsContainer.innerHTML = '';
+  for (let i = 0; i < slideCount; i++) {
+    const btn = document.createElement('button');
+    btn.addEventListener('click', () => goToSlide(i));
+    dotsContainer.appendChild(btn);
+  }
+  updateDots();
+}
+
+function updateDots() {
+  document.querySelectorAll('.slider-dots button').forEach((dot, i) => {
+    dot.classList.toggle('active', i === currentSlide);
+  });
+}
+
+function goToSlide(index) {
+  const slideCount = document.querySelectorAll('.slide').length;
+  currentSlide = (index + slideCount) % slideCount;
+  slides.style.transform = `translateX(-${currentSlide * 100 / slideCount}%)`;
+  updateDots();
+  resetInterval();
+}
+
+function nextSlide() { goToSlide(currentSlide + 1); }
+function prevSlide() { goToSlide(currentSlide - 1); }
+
+function startInterval() {
+  slideInterval = setInterval(nextSlide, 5000);
+}
+
+function resetInterval() {
+  clearInterval(slideInterval);
+  startInterval();
+}
+
+if (slides) {
+  createDots();
+  prevBtn.addEventListener('click', prevSlide);
+  nextBtn.addEventListener('click', nextSlide);
+  startInterval();
+
+  // Pausar en hover
+  const hero = document.querySelector('.hero');
+  hero.addEventListener('mouseenter', () => clearInterval(slideInterval));
+  hero.addEventListener('mouseleave', startInterval);
+
+  // Touch/swipe support
+  let startX = 0;
+  hero.addEventListener('touchstart', e => startX = e.touches[0].clientX);
+  hero.addEventListener('touchend', e => {
+    const diff = startX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 50) diff > 0 ? nextSlide() : prevSlide();
+  });
+}
