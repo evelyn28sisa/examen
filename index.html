@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dulce Tentación - Postres Artesanales</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>Dulce Tentación</h1>
+      <p>Postres artesanales con amor</p>
+    </div>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#productos">Productos</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <section id="inicio" class="hero">
+    <div class="hero-content">
+      <h2>Los mejores postres de la ciudad</h2>
+      <p>Endulza tu vida con nuestras creaciones artesanales</p>
+      <a href="#productos" class="btn">Ver Menú</a>
+    </div>
+  </section>
+
+  <section id="productos" class="productos">
+    <h2>Nuestros Postres</h2>
+    <div class="grid">
+      <div class="card" data-name="Tarta de Chocolate" data-price="4500">
+        <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=300" alt="Tarta de Chocolate">
+        <h3>Tarta de Chocolate</h3>
+        <p class="desc">Chocolate belga con relleno suave de ganache</p>
+        <p class="precio">$4,500</p>
+        <button class="btn agregar">Agregar al carrito</button>
+      </div>
+      <div class="card" data-name="Cheesecake" data-price="5200">
+        <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=300" alt="Cheesecake">
+        <h3>Cheesecake NY</h3>
+        <p class="desc">Clásico cheesecake con salsa de frutos rojos</p>
+        <p class="precio">$5,200</p>
+        <button class="btn agregar">Agregar al carrito</button>
+      </div>
+      <div class="card" data-name="Macarons" data-price="3200">
+        <img src="https://images.unsplash.com/photo-1569864358642-9d1684040f43?w=300" alt="Macarons">
+        <h3>Macarons (6u)</h3>
+        <p class="desc">Finos macarons franceses surtidos</p>
+        <p class="precio">$3,200</p>
+        <button class="btn agregar">Agregar al carrito</button>
+      </div>
+      <div class="card" data-name="Tiramisú" data-price="4800">
+        <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?w=300" alt="Tiramisú">
+        <h3>Tiramisú</h3>
+        <p class="desc">Capas de bizcocho, mascarpone y café</p>
+        <p class="precio">$4,800</p>
+        <button class="btn agregar">Agregar al carrito</button>
+      </div>
+      <div class="card" data-name="Cupcakes" data-price="2800">
+        <img src="https://images.unsplash.com/photo-1587668178277-295251f900ce?w=300" alt="Cupcakes">
+        <h3>Cupcakes (4u)</h3>
+        <p class="desc">Esponjosos cupcakes decorados a mano</p>
+        <p class="precio">$2,800</p>
+        <button class="btn agregar">Agregar al carrito</button>
+      </div>
+      <div class="card" data-name="Flan" data-price="3500">
+        <img src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51?w=300" alt="Flan">
+        <h3>Flan de Caramelo</h3>
+        <p class="desc">Flan casero con caramelo tradicional</p>
+        <p class="precio">$3,500</p>
+        <button class="btn agregar">Agregar al carrito</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="carrito" class="carrito">
+    <h2>Tu Carrito</h2>
+    <div id="carrito-vacio">
+      <p>El carrito está vacío</p>
+    </div>
+    <ul id="lista-carrito"></ul>
+    <div id="total-container">
+      <p><strong>Total: $<span id="total">0</span></strong></p>
+      <button id="vaciar-carrito" class="btn btn-secundario">Vaciar carrito</button>
+    </div>
+  </section>
+
+  <section id="contacto" class="contacto">
+    <h2>Contacto</h2>
+    <div class="contacto-info">
+      <p><strong>Dirección:</strong> Av. Siempre Viva 742, Ciudad</p>
+      <p><strong>Teléfono:</strong> +54 11 5555-6789</p>
+      <p><strong>Email:</strong> info@dulcetentacion.com</p>
+      <p><strong>Horario:</strong> Lun - Sáb 9:00 - 20:00</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Dulce Tentación - Todos los derechos reservados</p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
